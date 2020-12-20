@@ -2,7 +2,7 @@ import User, { IUser } from "./user";
 
 export interface IUserRepository {
 	signUp(user: IUser): Promise<IUser>;
-	signIn(user: IUser): Promise<IUser | null>;
+	signIn(user: string): Promise<IUser | null>;
 }
 
 class UserRepository implements IUserRepository {
@@ -14,10 +14,10 @@ class UserRepository implements IUserRepository {
 		return await newUser.save();
 	}
 
-	public async signIn(user: IUser): Promise<IUser | null> {
-		const userFind: IUser | null = await this.UserModel.findOne({ email: user.email });
-    if(userFind === null) return null 
-    return userFind;
+	public async signIn(email: string): Promise<IUser | null> {
+		const userFound: IUser | null = await this.UserModel.findOne({ email: email });
+    if(userFound === null) return null 
+    return userFound;
 	}
 }
 

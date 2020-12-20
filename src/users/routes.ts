@@ -10,8 +10,10 @@ export class Routes {
 	}
 
 	private configureRoutes(app: Express) {
-		app.route("/api/users")
-			.post(this.userController.getUser)
-			.post(this.userController.addNewUser);
+		app.route("/api/signup")
+			.post(this.userController.addNewUser)
+
+    app.route("/api/signin")
+				.post(this.userController.getUser);
 	}
 }
