@@ -6,7 +6,6 @@ export interface IUserRepository {
 }
 
 class UserRepository implements IUserRepository {
-
 	private UserModel = User;
 
 	public async signUp(user: IUser): Promise<IUser> {
@@ -16,9 +15,9 @@ class UserRepository implements IUserRepository {
 
 	public async signIn(email: string): Promise<IUser | null> {
 		const userFound: IUser | null = await this.UserModel.findOne({ email: email });
-    if(userFound === null) return null 
-    return userFound;
+		if (userFound === null) return null;
+		return userFound;
 	}
 }
 
-export default new UserRepository
+export default new UserRepository();
