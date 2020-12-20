@@ -2,9 +2,9 @@ import mongoose, { ConnectionOptions } from "mongoose";
 import config from "./config/config";
 
 class Database {
-  public config = config;
+	public config = config;
 	private mongoose = mongoose;
-  private connection = this.mongoose.connection;
+	private connection = this.mongoose.connection;
 
 	constructor() {
 		this.initConnection();
